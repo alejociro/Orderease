@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#213423',
         borderRadius: 16,
         elevation: 7,
+        marginVertical: 8,
     },
     image: {
         width: 80,
@@ -121,7 +122,7 @@ const Promotions = () => {
                 layout="default"
                 ref={isCarousel}
                 data={data}
-                autoplayInterval={6000}
+                autoplayInterval={5000}
                 renderItem={CarouselCardItem}
                 sliderWidth={SLIDER_WIDTH}
                 itemWidth={ITEM_WIDTH}
@@ -130,6 +131,7 @@ const Promotions = () => {
                 vertical={false}
                 autoplay={true}
                 loop={true}
+                activeSlideAlignment='center'
             />
         </View>
     )

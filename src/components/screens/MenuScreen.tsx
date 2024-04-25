@@ -1,9 +1,11 @@
 import React from "react";
-import {Text, TextInput, View} from "react-native";
+import {ScrollView, Text, TextInput, View} from "react-native";
 import Location from "@components/Location.tsx";
 import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {faSearch} from "@fortawesome/free-solid-svg-icons";
-import Promotions from "components/Promotions.tsx";
+import Promotions from "@components/Promotions.tsx";
+import PrincipalItems from "@components/PrincipalItems.tsx";
+import Categories from "@components/Categories.tsx";
 
 export function MenuScreen() {
     return (
@@ -43,22 +45,21 @@ export function MenuScreen() {
                     placeholder="Buscar"
                 />
             </View>
-            <Promotions></Promotions>
-            <View style={{
-                alignItems: "flex-start",
-                paddingHorizontal: 20,
-                paddingTop: 10,
+
+            <ScrollView style={{
                 gap: 20
             }}>
-                <Text style={{
-                    fontFamily: 'Mulish',
-                    fontWeight: '600',
-                    fontSize: 18,
-                    color: '#525950',
+                <Promotions />
+                <View style={{
+                    flexDirection: "column",
+                    paddingHorizontal: 20,
+                    paddingTop: 10,
+                    gap: 20
                 }}>
-                    Los más pedidos
-                </Text>
-            </View>
+                    <PrincipalItems />
+                    <Categories />
+                </View>
+            </ScrollView>
         </View>
     );
 }
