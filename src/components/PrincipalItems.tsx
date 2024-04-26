@@ -9,9 +9,12 @@ export const SLIDER_WIDTH = Dimensions.get('window').width - 40
 export const ITEM_WIDTH = Math.round(SLIDER_WIDTH/3)
 
 // @ts-ignore
-const CarouselCardItem = ({ item, index, modalVisible, setModalVisible  }) => {
+const CarouselCardItem = ({ item, index, setModalVisible, setCurrentItem  }) => {
     return (
-        <Pressable style={styles.container} key={index} onPress={() => setModalVisible(true)}>
+        <Pressable style={styles.container} key={index} onPress={() => {
+            setCurrentItem(item)
+            setModalVisible(true)
+        }}>
                 {
                     item.score
                         ? (
@@ -111,13 +114,14 @@ const styles = StyleSheet.create({
 
 const PrincipalItems = () => {
     const [modalVisible, setModalVisible] = useState(false);
+    const [currentItem, setCurrentItem] = useState(null);
 
     return (
         <View style={{
             gap: 20,
             flexDirection: 'column',
         }}>
-            <ItemView setModalVisible={setModalVisible} modalVisible={modalVisible}/>
+            <ItemView setModalVisible={setModalVisible} modalVisible={modalVisible} item={currentItem} setCurrentItem={setCurrentItem} />
             <Text style={{
                 fontFamily: 'Mulish',
                 fontWeight: '600',
@@ -132,7 +136,7 @@ const PrincipalItems = () => {
                     horizontal
                     data={principalItems}
                     renderItem={({ item, index }) => (
-                        <CarouselCardItem item={item} index={index} modalVisible={modalVisible} setModalVisible={setModalVisible}></CarouselCardItem>
+                        <CarouselCardItem item={item} index={index} setModalVisible={setModalVisible} setCurrentItem={setCurrentItem}></CarouselCardItem>
                     )}
                 />
             </SafeAreaView>
