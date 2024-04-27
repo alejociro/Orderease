@@ -121,7 +121,7 @@ const PrincipalItems = () => {
             gap: 20,
             flexDirection: 'column',
         }}>
-            <ItemView setModalVisible={setModalVisible} modalVisible={modalVisible} item={currentItem} setCurrentItem={setCurrentItem} />
+            <ItemView setModalVisible={setModalVisible} modalVisible={modalVisible} item={currentItem} />
             <Text style={{
                 fontFamily: 'Mulish',
                 fontWeight: '600',

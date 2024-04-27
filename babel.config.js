@@ -9,6 +9,9 @@ module.exports = {
          alias: {
            tests: ['./tests/'],
            "@components": "./src/components",
+           "@viewModels": "./src/viewModels",
+           "@screens": "./src/screens",
+           "@imgs": "./src/imgs",
          }
        },
      ]

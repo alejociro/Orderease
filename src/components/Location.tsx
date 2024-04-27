@@ -1,9 +1,15 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Pressable, Text, View} from 'react-native';
 import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {faLocationDot, faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import {useCart} from "viewModels/CarContext.tsx";
 
-const Location = () => {
+// @ts-ignore
+const Location = ({setSidebarVisible}) => {
+    // @ts-ignore
+    const { cart } = useCart();
+
+
     return (
         <View style={{
             flexDirection: 'row',
@@ -23,7 +29,7 @@ const Location = () => {
                 <FontAwesomeIcon style={{
                     color: '#a1af9e',
                     margin: 10,
-                }} icon={faLocationDot} />
+                }} icon={faLocationDot}/>
                 <Text
                     style={{
                         fontFamily: 'Mulish',
@@ -36,13 +42,31 @@ const Location = () => {
                     La casa de la abuela
                 </Text>
             </View>
-            <FontAwesomeIcon
-                icon={faShoppingCart}
-                size={20}
-                color='#a1af9e'
-                secondaryColor='#a1af9e'
-                secondaryOpacity={0}
-            />
+            <Pressable style={{position: 'relative'}} onPress={() => setSidebarVisible(true)}>
+                <FontAwesomeIcon
+                    icon={faShoppingCart}
+                    size={20}
+                    color='#a1af9e'
+                />
+                {
+                    cart?.length ? (
+                        <View style={{
+                            position: 'absolute',
+                            top: -6,
+                            right: -10,
+                            borderRadius: 100,
+                            backgroundColor: '#1F985E',
+                            width: 12,
+                            height: 12,
+                            zIndex: 3,
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                        }}>
+                            <Text style={{ color: 'white', fontSize: 8, fontWeight: '600'}}>{cart?.length}</Text>
+                        </View>
+                    ) : ''
+                }
+            </Pressable>
         </View>
     );
 };
