@@ -12,7 +12,7 @@ function App() {
     return (
           <NavigationContainer>
             <Stack.Navigator
-                initialRouteName="Menu"
+                initialRouteName="Home"
                 screenOptions={{
                     headerShown: false,
                     contentStyle:{
