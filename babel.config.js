@@ -12,6 +12,7 @@ module.exports = {
            "@viewModels": "./src/viewModels",
            "@screens": "./src/screens",
            "@imgs": "./src/imgs",
+           "@utils": "./src/utils",
          }
        },
      ]

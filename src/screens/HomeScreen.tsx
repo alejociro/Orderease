@@ -45,7 +45,7 @@ export function HomeScreen({navigation}) {
                     alignSelf: 'center',
                     padding: 16,
                     gap: 8
-                }} onPress={() => navigation.navigate('Menu')}>
+                }} onPress={() => navigation.navigate('SingUp')}>
                     <Text style={{
                         fontFamily: 'Mulish',
                         fontWeight: '600',
