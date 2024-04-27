@@ -1,19 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {
     View,
     Text,
     StyleSheet,
     Pressable,
-    TouchableWithoutFeedback,
     Image,
-    Dimensions, TextInput, KeyboardAvoidingView, Platform, SafeAreaView, Keyboard, ScrollView, Button
+    Dimensions, TextInput, ScrollView, Button
 } from "react-native"
 import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {faMinus, faPlus, faStar} from "@fortawesome/free-solid-svg-icons";
 import Modal from "react-native-modal";
-import {useHeaderHeight} from "react-native-screens/native-stack";
-
-export const WIDTH = Dimensions.get('window').width
+import {useCart} from "viewModels/CarContext.tsx";
 
 const styles = StyleSheet.create({
     modalView: {
@@ -163,7 +160,11 @@ const styles = StyleSheet.create({
 })
 
 // @ts-ignore
-const ItemView = ({ modalVisible, setModalVisible, item, setCurrentItem}) => {
+const ItemView = ({ modalVisible, setModalVisible, item}) => {
+    const [count, setCount] = useState(1);
+    // @ts-ignore
+    const { addToCart } = useCart();
+
     return (
         <Modal
             animationIn="slideInUp"
@@ -271,12 +272,25 @@ const ItemView = ({ modalVisible, setModalVisible, item, setCurrentItem}) => {
                                 gap: 10,
                                 flexDirection: 'row',
                             }}>
-                                <Pressable style={styles.counter}>
-                                    <FontAwesomeIcon color='#1F985E' icon={faMinus}></FontAwesomeIcon>
-                                    <Text>0</Text>
-                                    <FontAwesomeIcon color='#1F985E' icon={faPlus}></FontAwesomeIcon>
-                                </Pressable>
-                                <Pressable style={styles.bottomPrimary}>
+                                <View style={styles.counter}>
+                                    <Pressable
+                                        disabled={count === 1}
+                                        onPress={ () => setCount(count -  1)}
+                                    >
+                                        <FontAwesomeIcon color={count === 1 ? '#A5A5BA' : '#1F985E'} icon={faMinus}></FontAwesomeIcon>
+                                    </Pressable>
+                                    <Text>{ count }</Text>
+                                    <Pressable
+                                        onPress={ () => setCount(count +  1)}
+                                    >
+                                        <FontAwesomeIcon color='#1F985E' icon={faPlus}></FontAwesomeIcon>
+                                    </Pressable>
+                                </View>
+                                <Pressable style={styles.bottomPrimary} onPress={() => {
+                                    setCount(1)
+                                    addToCart(item, count)
+                                    setModalVisible(false)
+                                }}>
                                     <Text style={{
                                         fontFamily: 'Mulish',
                                         fontWeight: '600',
