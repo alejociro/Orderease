@@ -75,6 +75,7 @@ export function HomeScreen({navigation}) {
                     }}>Hacer mi pedido</Text>
                 </Pressable>
             </View>
+            </View>
         </ScrollView>
     );
 }
