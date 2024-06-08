@@ -32,7 +32,6 @@ const Location = ({setSidebarVisible}) => {
                 }} icon={faLocationDot}/>
                 <Text
                     style={{
-                        fontFamily: 'Mulish',
                         fontWeight: "600",
                         fontSize: 16,
                         lineHeight: 22,

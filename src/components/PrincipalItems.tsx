@@ -74,7 +74,6 @@ const styles = StyleSheet.create({
         zIndex: 100,
     },
     scoreText: {
-        fontFamily: 'Mulish',
         fontWeight: '600',
         fontSize: 11,
         color: '#8E8EA9',
@@ -86,7 +85,6 @@ const styles = StyleSheet.create({
         borderRadius: 100,
     },
     header: {
-        fontFamily: 'Mulish',
         fontWeight: "600",
         fontSize: 14,
         display: 'flex',
@@ -94,7 +92,6 @@ const styles = StyleSheet.create({
         color: "#32324D",
     },
     price: {
-        fontFamily: 'Mulish',
         display: 'flex',
         alignItems: 'center',
         color: "#1F985E",
@@ -103,7 +100,6 @@ const styles = StyleSheet.create({
     },
     priceIco: {
         width: 10,
-        fontFamily: 'Mulish',
         display: 'flex',
         alignItems: 'flex-start',
         color: "#1F985E",
@@ -123,7 +119,6 @@ const PrincipalItems = () => {
         }}>
             <ItemView setModalVisible={setModalVisible} modalVisible={modalVisible} item={currentItem} />
             <Text style={{
-                fontFamily: 'Mulish',
                 fontWeight: '600',
                 fontSize: 18,
                 color: '#525950',

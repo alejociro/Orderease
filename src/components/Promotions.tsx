@@ -80,7 +80,6 @@ const styles = StyleSheet.create({
         zIndex: -1,
     },
     header: {
-        fontFamily: 'Mulish',
         fontWeight: "900",
         fontSize: 18,
         display: 'flex',
@@ -88,13 +87,11 @@ const styles = StyleSheet.create({
         color: "white",
     },
     smallText: {
-        fontFamily: 'Mulish',
         fontWeight: "400",
         fontSize: 12,
         color: '#dddddd',
     },
     price: {
-        fontFamily: 'Mulish',
         display: 'flex',
         alignItems: 'center',
         color: "white",
@@ -103,7 +100,6 @@ const styles = StyleSheet.create({
     },
     priceIco: {
         width: 10,
-        fontFamily: 'Mulish',
         display: 'flex',
         alignItems: 'flex-start',
         color: "white",

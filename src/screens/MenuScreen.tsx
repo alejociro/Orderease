@@ -27,7 +27,6 @@ function MainContent({navigation, setSidebarVisible}) {
             <Location setSidebarVisible={setSidebarVisible} />
             <Text
                 style={{
-                    fontFamily: 'Mulish',
                     fontWeight: 500,
                     fontSize: 22,
                     color: '#32324D',

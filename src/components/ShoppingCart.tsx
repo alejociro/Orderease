@@ -32,7 +32,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#F8F8F8',
     },
     scoreText: {
-        fontFamily: 'Mulish',
         fontWeight: '600',
         fontSize: 14,
         color: '#525950FF',
@@ -68,14 +67,12 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     smallText: {
-        fontFamily: 'Mulish',
-        fontWeight: 500,
+        fontWeight: '500',
         fontSize: 14,
         color: '#8E8EA9'
     },
     title: {
-        fontFamily: 'Mulish',
-        fontWeight: 500,
+        fontWeight: '500',
         fontSize: 18,
         color: '#32324D'
     },
@@ -86,7 +83,6 @@ const styles = StyleSheet.create({
         borderRadius: 100,
     },
     header: {
-        fontFamily: 'Mulish',
         fontWeight: "600",
         fontSize: 18,
         display: 'flex',
@@ -94,7 +90,6 @@ const styles = StyleSheet.create({
         color: "#32324D",
     },
     price: {
-        fontFamily: 'Mulish',
         display: 'flex',
         alignItems: 'center',
         color: "#1F985E",
@@ -103,7 +98,6 @@ const styles = StyleSheet.create({
     },
     priceIco: {
         width: 10,
-        fontFamily: 'Mulish',
         display: 'flex',
         alignItems: 'flex-start',
         color: "#1F985E",
@@ -233,7 +227,6 @@ const ShoppingCart = ({sidebarVisible, setSidebarVisible}) => {
                 cart?.length
                 ?  <Pressable style={styles.bottomPrimary}>
                         <Text style={{
-                            fontFamily: 'Mulish',
                             fontWeight: '600',
                             fontSize: 16,
                             color: '#FFFFFF'

@@ -47,13 +47,11 @@ const SignUp = ({navigation}) => {
     }}>
         <View style={{ width: '100%', justifyContent: 'center', alignItems: 'center' }}>
             <Text style={{
-              fontFamily: 'Mulish',
               fontWeight: '500',
               fontSize: 26,
               color: '#32324D'
             }}>Bienvenido 😁</Text>
             <Text style={{
-              fontFamily: 'Mulish',
               fontWeight: '500',
               fontSize: 16,
               color: '#666687'
@@ -134,7 +132,6 @@ const SignUp = ({navigation}) => {
                   <ActivityIndicator color='white' size={16} />
               ) : (
                   <Text style={{
-                    fontFamily: 'Mulish',
                     fontWeight: '600',
                     fontSize: 16,
                     color: '#FFFFFF'
@@ -176,7 +173,6 @@ const SignUp = ({navigation}) => {
           gap: 8
         }} onPress={() => navigation.navigate('Login')}>
           <Text style={{
-            fontFamily: 'Mulish',
             fontWeight: '600',
             alignSelf: 'center',
             textAlign: 'center',
@@ -197,7 +193,6 @@ const SignUp = ({navigation}) => {
         gap: 8
       }} onPress={() => navigation.navigate('Menu')}>
         <Text style={{
-          fontFamily: 'Mulish',
           fontWeight: '600',
           alignSelf: 'center',
           textAlign: 'center',

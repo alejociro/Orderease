@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
         borderRadius: 100,
     },
     header: {
-        fontFamily: 'Mulish',
         fontWeight: "600",
         fontSize: 18,
         display: 'flex',
@@ -49,7 +48,6 @@ const styles = StyleSheet.create({
         color: "#32324D",
     },
     description: {
-        fontFamily: 'Mulish',
         display: 'flex',
         alignItems: 'center',
         color: "#C0C0CF",
@@ -66,7 +64,6 @@ const Categories = () => {
             flexDirection: 'column',
         }}>
             <Text style={{
-                fontFamily: 'Mulish',
                 fontWeight: '600',
                 fontSize: 18,
                 color: '#525950',

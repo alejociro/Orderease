@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
         borderRadius: 100,
     },
     header: {
-        fontFamily: 'Mulish',
         fontWeight: "700",
         fontSize: 20,
         display: 'flex',
@@ -87,7 +86,6 @@ const styles = StyleSheet.create({
         color: "#1F985E",
     },
     price: {
-        fontFamily: 'Mulish',
         display: 'flex',
         alignItems: 'center',
         color: "#1F985E",
@@ -95,7 +93,6 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
     },
     description: {
-        fontFamily: 'Mulish',
         display: 'flex',
         alignItems: 'center',
         color: "#9aa198",
@@ -104,7 +101,6 @@ const styles = StyleSheet.create({
     },
     priceIco: {
         width: 10,
-        fontFamily: 'Mulish',
         display: 'flex',
         alignItems: 'flex-start',
         color: "#1F985E",
@@ -128,7 +124,6 @@ const styles = StyleSheet.create({
         zIndex: 100,
     },
     scoreText: {
-        fontFamily: 'Mulish',
         fontWeight: '600',
         fontSize: 14,
         color: '#525950FF',
@@ -233,7 +228,6 @@ const ItemView = ({ modalVisible, setModalVisible, item}) => {
                                         </View>
                                         <Text style={styles.description}>{item?.description}</Text>
                                         <Text style={{
-                                            fontFamily: 'Mulish',
                                             fontWeight: '600',
                                             fontSize: 18,
                                             color: '#525950',
@@ -292,7 +286,6 @@ const ItemView = ({ modalVisible, setModalVisible, item}) => {
                                     setModalVisible(false)
                                 }}>
                                     <Text style={{
-                                        fontFamily: 'Mulish',
                                         fontWeight: '600',
                                         fontSize: 16,
                                         color: '#FFFFFF'

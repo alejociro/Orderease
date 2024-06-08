@@ -10,6 +10,7 @@ import {
 // @ts-ignore
 export function HomeScreen({navigation}) {
     return (
+        <ScrollView>
         <View
             style={{
                 flexDirection: 'column',
@@ -22,7 +23,6 @@ export function HomeScreen({navigation}) {
             <Image source={require('./../imgs/home.png')}></Image>
             <View style={{ alignItems: 'center', justifyContent: 'space-between', padding: 16, gap: 10 }}>
                 <Text style={{
-                    fontFamily: 'Mulish',
                     fontWeight: '500',
                     fontSize: 26,
                     color: '#2c3e2e'
@@ -30,7 +30,6 @@ export function HomeScreen({navigation}) {
                     Una experiencia completa
                 </Text>
                 <Text style={{
-                    fontFamily: 'Mulish',
                     fontWeight: '500',
                     fontSize: 16,
                     color: '#9ea89b'
@@ -47,7 +46,6 @@ export function HomeScreen({navigation}) {
                     gap: 8
                 }} onPress={() => navigation.navigate('SingUp')}>
                     <Text style={{
-                        fontFamily: 'Mulish',
                         fontWeight: '600',
                         alignSelf: 'center',
                         textAlign: 'center',
@@ -71,14 +69,13 @@ export function HomeScreen({navigation}) {
                     borderRadius: 16,
                 }} onPress={() => navigation.navigate('Menu')}>
                     <Text style={{
-                        fontFamily: 'Mulish',
                         fontWeight: '600',
                         fontSize: 16,
                         color: '#FFFFFF'
                     }}>Hacer mi pedido</Text>
                 </Pressable>
             </View>
-        </View>
+        </ScrollView>
     );
 }
 export default HomeScreen;
