@@ -3,11 +3,14 @@ import {Pressable, Text, View} from 'react-native';
 import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {faLocationDot, faShoppingCart} from "@fortawesome/free-solid-svg-icons";
 import {useCart} from "viewModels/CarContext.tsx";
+import {useTable} from "viewModels/TableContext.tsx";
 
 // @ts-ignore
-const Location = ({setSidebarVisible}) => {
+const Location = ({setSidebarVisible, navigation}) => {
     // @ts-ignore
     const { cart } = useCart();
+    // @ts-ignore
+    const { selectedTable, setSelectedTable } = useTable();
 
 
     return (
@@ -17,10 +20,15 @@ const Location = ({setSidebarVisible}) => {
             alignItems: 'center',
             gap: 20,
             height: 44,
-            paddingTop: 20,
+            paddingTop: 40,
             paddingHorizontal: 20,
         }}>
-            <View style={{
+            <Pressable
+                onPress={() => {
+                    setSelectedTable(null)
+                    navigation.navigate('Home')
+                }}
+                style={{
                 flexDirection: 'row',
                 justifyContent: "center",
                 alignItems: "center",
@@ -38,9 +46,9 @@ const Location = ({setSidebarVisible}) => {
                         color: '#a1af9e',
                     }}
                 >
-                    La casa de la abuela
+                    { selectedTable ? selectedTable.name : 'La casa de la abuela'}
                 </Text>
-            </View>
+            </Pressable>
             <Pressable style={{position: 'relative'}} onPress={() => setSidebarVisible(true)}>
                 <FontAwesomeIcon
                     icon={faShoppingCart}

@@ -24,7 +24,7 @@ function MainContent({navigation, setSidebarVisible}) {
                 flexDirection: 'column',
                 gap: 10,
             }}>
-            <Location setSidebarVisible={setSidebarVisible} />
+            <Location navigation={navigation} setSidebarVisible={setSidebarVisible} />
             <Text
                 style={{
                     fontWeight: 500,
