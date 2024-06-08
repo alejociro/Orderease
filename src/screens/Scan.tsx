@@ -34,8 +34,8 @@ export default function Scan({navigation}) {
         setScanned(true);
         let text = await fetchContent(data);
         setSelectedTable(text);
-        navigation.navigate('Menu')
         setScanned(false);
+        navigation.navigate('Menu')
     };
 
     if (hasPermission === null) {

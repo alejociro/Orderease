@@ -20,13 +20,13 @@ const Location = ({setSidebarVisible, navigation}) => {
             alignItems: 'center',
             gap: 20,
             height: 44,
-            paddingTop: 40,
+            width: '100%',
             paddingHorizontal: 20,
         }}>
             <Pressable
                 onPress={() => {
-                    setSelectedTable(null)
                     navigation.navigate('Home')
+                    setSelectedTable(null)
                 }}
                 style={{
                 flexDirection: 'row',

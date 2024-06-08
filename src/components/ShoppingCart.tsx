@@ -9,7 +9,9 @@ import {faArrowLeft, faMinus, faPlus, faStar, faTrash, faArrowRight} from "@fort
 import {useCart} from "viewModels/CarContext.tsx";
 import Modal from "react-native-modal";
 import { ref, set } from 'firebase/database';
-import { db } from '../utils/firebase'; 
+import { db } from '../utils/firebase';
+import {useTable} from "viewModels/TableContext.tsx";
+import {useOrder} from "viewModels/OrderContext.tsx";
 
 
 const styles = StyleSheet.create({
@@ -205,6 +207,7 @@ const sendOrderToFirebase = async (cart: any) => {
             items: cart,
             createdAt: new Date().toISOString()
         });
+
         console.log('Order sent to Firebase');
     } catch (error) {
         console.error('Error sending order to Firebase:', error);
@@ -213,12 +216,19 @@ const sendOrderToFirebase = async (cart: any) => {
 
 
 // @ts-ignore
-const ShoppingCart = ({ sidebarVisible, setSidebarVisible }) => {
+const ShoppingCart = ({ sidebarVisible, setSidebarVisible, navigation }) => {
+    // @ts-ignore
+    const { selectedTable } = useTable();
     // @ts-ignore
     const { cart } = useCart();
+    // @ts-ignore
+    const { setOrderActive } = useOrder();
+
 
     const handleSendOrder = () => {
+        setOrderActive(cart);
         sendOrderToFirebase(cart);
+        navigation.navigate('Order')
     };
 
     return (
@@ -238,7 +248,9 @@ const ShoppingCart = ({ sidebarVisible, setSidebarVisible }) => {
                         <FontAwesomeIcon icon={faArrowLeft} />
                     </Pressable>
                     <View style={{ alignItems: 'flex-start', gap: 3, justifyContent: 'center' }}>
-                        <Text style={styles.smallText}>La casa de la abuela</Text>
+                        <Text style={styles.smallText}>
+                            { selectedTable ? selectedTable.name : 'La casa de la abuela'}
+                        </Text>
                         <Text style={styles.title}>Tu orden</Text>
                     </View>
                 </View>

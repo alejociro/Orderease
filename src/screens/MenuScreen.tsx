@@ -85,7 +85,7 @@ export function MenuScreen({navigation}) {
                         <MainContent navigation={navigation} setSidebarVisible={setSidebarVisible} />
                     </View>
                     <TouchableWithoutFeedback>
-                        <ShoppingCart setSidebarVisible={setSidebarVisible} sidebarVisible={sidebarVisible} />
+                        <ShoppingCart navigation={navigation} setSidebarVisible={setSidebarVisible} sidebarVisible={sidebarVisible} />
                     </TouchableWithoutFeedback>
                 </View>
             </TouchableWithoutFeedback>
