@@ -8,6 +8,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-native-fontawesome";
 import {faArrowLeft, faMinus, faPlus, faStar, faTrash, faArrowRight} from "@fortawesome/free-solid-svg-icons";
 import {useCart} from "viewModels/CarContext.tsx";
 import Modal from "react-native-modal";
+import { ref, set } from 'firebase/database';
+import { db } from '../utils/firebase'; 
 
 
 const styles = StyleSheet.create({
@@ -196,10 +198,28 @@ const Cart = () => {
     );
 };
 
+const sendOrderToFirebase = async (cart: any) => {
+    try {
+        const orderId = `order_${Date.now()}`; // Genera un ID único para la orden
+        await set(ref(db, `orders/${orderId}`), {
+            items: cart,
+            createdAt: new Date().toISOString()
+        });
+        console.log('Order sent to Firebase');
+    } catch (error) {
+        console.error('Error sending order to Firebase:', error);
+    }
+};
+
+
 // @ts-ignore
-const ShoppingCart = ({sidebarVisible, setSidebarVisible}) => {
+const ShoppingCart = ({ sidebarVisible, setSidebarVisible }) => {
     // @ts-ignore
     const { cart } = useCart();
+
+    const handleSendOrder = () => {
+        sendOrderToFirebase(cart);
+    };
 
     return (
         <Modal
@@ -211,31 +231,31 @@ const ShoppingCart = ({sidebarVisible, setSidebarVisible}) => {
             backdropColor={'rgba(4,1,1,0.35)'}
             onBackdropPress={() => setSidebarVisible(false)}
             isVisible={sidebarVisible}
-            style={{margin: 0}}>
-        <View style={[styles.container]} >
-            <View style={{flexDirection: 'row', alignItems: 'center', gap: 8}}>
-                <Pressable style={styles.backBottom} onPress={() => setSidebarVisible(false)}>
-                    <FontAwesomeIcon icon={faArrowLeft} />
-                </Pressable>
-                <View style={{alignItems: 'flex-start', gap: 3, justifyContent: 'center'}}>
-                    <Text style={styles.smallText}>La casa de la abuela</Text>
-                    <Text style={styles.title}>Tu orden</Text>
-                </View>
-            </View>
-            <Cart />
-            {
-                cart?.length
-                ?  <Pressable style={styles.bottomPrimary}>
-                        <Text style={{
-                            fontWeight: '600',
-                            fontSize: 16,
-                            color: '#FFFFFF'
-                        }}>Enviar orden</Text>
-                        <FontAwesomeIcon color='white' icon={faArrowRight} />
+            style={{ margin: 0 }}>
+            <View style={[styles.container]} >
+                <View style={{ flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                    <Pressable style={styles.backBottom} onPress={() => setSidebarVisible(false)}>
+                        <FontAwesomeIcon icon={faArrowLeft} />
                     </Pressable>
-                : null
-            }
-        </View>
+                    <View style={{ alignItems: 'flex-start', gap: 3, justifyContent: 'center' }}>
+                        <Text style={styles.smallText}>La casa de la abuela</Text>
+                        <Text style={styles.title}>Tu orden</Text>
+                    </View>
+                </View>
+                <Cart />
+                {
+                    cart?.length
+                        ? <Pressable style={styles.bottomPrimary} onPress={handleSendOrder}>
+                            <Text style={{
+                                fontWeight: '600',
+                                fontSize: 16,
+                                color: '#FFFFFF'
+                            }}>Enviar orden</Text>
+                            <FontAwesomeIcon color='white' icon={faArrowRight} />
+                        </Pressable>
+                        : null
+                }
+            </View>
         </Modal>
     );
 };
