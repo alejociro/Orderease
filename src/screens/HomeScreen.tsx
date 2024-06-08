@@ -94,7 +94,6 @@ export function HomeScreen({navigation}) {
                     </Pressable>
                 </View>
             </View>
-            </View>
         </ScrollView>
     );
 }
